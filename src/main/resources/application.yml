@@ -9,8 +9,10 @@ server:
 graphql:
   servlet:
     maxQueryDepth: 90
+  voyager:
+    enable: true #change to false in a production environment
   playground:
-    enable: true #change in production environment
+    enable: true #change to false in production environment
     headers:
       Authorization: Bearer TOKEN
     tabs:

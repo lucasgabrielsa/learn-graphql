@@ -6,4 +6,15 @@ server:
   http2:
     enabled: true
 
+graphql:
+  servlet:
+    maxQueryDepth: 5
+  playground:
+    headers:
+      Authorization: Bearer TOKEN
+    tabs:
+      - name: Bank account simple query
+        query: classpath:playground/bank_account.graphql
+        variables: classpath:playground/bank_account_variables.json
+
 

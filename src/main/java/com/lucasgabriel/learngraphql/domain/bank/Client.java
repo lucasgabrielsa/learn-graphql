@@ -1,16 +1,17 @@
 package com.lucasgabriel.learngraphql.domain.bank;
 
 import lombok.Builder;
-import lombok.Value;
+import lombok.Setter;
 
 import java.util.List;
 import java.util.UUID;
 
-@Value
+@Setter
 @Builder
 public class Client {
     UUID id;
     String firstName;
     List<String> middleNames;
     String lastName;
+    Client client;
 }

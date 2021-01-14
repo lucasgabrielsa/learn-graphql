@@ -14,16 +14,32 @@ import java.util.UUID;
 @Component
 public class BankAccountResolver implements GraphQLQueryResolver {
 
+    private static final String EXAMPLE_BANK_ACCOUNT = "304e3d0e-3b51-4341-b12b-fd2741dcc89d";
+
     public BankAccount bankAccount(UUID id) {
       log.info("Retrieving bank account id {}", id);
+
+      Client client01 =Client
+                .builder()
+                .id(UUID.randomUUID())
+                .firstName("Lucas")
+                .middleNames(Arrays.asList("Gabriel","Simão"))
+                .lastName("Alves1")
+                .build();
+
+        Client client02 =Client
+                .builder()
+                .id(UUID.randomUUID())
+                .firstName("Lucas")
+                .middleNames(Arrays.asList("Gabriel","Simão"))
+                .lastName("Alves 2")
+                .build();
+
+        client01.setClient(client02);
+        client02.setClient(client01);
+
       return BankAccount.builder().id(id).currency(Currency.USD)
-              .client(Client
-                        .builder()
-                        .id(UUID.randomUUID())
-                        .firstName("Lucas")
-                        .middleNames(Arrays.asList("Gabriel","Simão"))
-                        .lastName("Alves")
-                        .build())
+              .client(client01)
               .build();
     }
 

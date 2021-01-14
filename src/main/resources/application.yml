@@ -10,6 +10,7 @@ graphql:
   servlet:
     maxQueryDepth: 5
   playground:
+    enable: true #change in production environment
     headers:
       Authorization: Bearer TOKEN
     tabs:

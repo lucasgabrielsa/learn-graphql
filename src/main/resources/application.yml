@@ -8,7 +8,7 @@ server:
 
 graphql:
   servlet:
-    maxQueryDepth: 5
+    maxQueryDepth: 90
   playground:
     enable: true #change in production environment
     headers:

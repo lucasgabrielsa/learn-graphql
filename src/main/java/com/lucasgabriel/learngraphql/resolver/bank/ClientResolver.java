@@ -40,12 +40,15 @@ public class ClientResolver implements GraphQLResolver<BankAccount> {
     );
 
     public CompletableFuture<Client> client(BankAccount bankAccount) {
-        log.info("Requesting Client data for bank account id {}", bankAccount.getId());
-        return CompletableFuture.supplyAsync(() -> Client.builder()
-                 .id(UUID.randomUUID())
-                 .firstName("Lucas")
-                 .middleNames(Arrays.asList("Gabriel","Simão"))
-                 .lastName("Alves1").build(), executorService);
+        return CompletableFuture.supplyAsync(
+                () -> {
+                    log.info("Requesting Client data for bank account id {}", bankAccount.getId());
+                    return Client.builder()
+                            .id(UUID.randomUUID())
+                            .firstName("Lucas")
+                            .middleNames(Arrays.asList("Gabriel", "Simão"))
+                            .lastName("Alves1").build();
+                }, executorService);
     }
 
 }

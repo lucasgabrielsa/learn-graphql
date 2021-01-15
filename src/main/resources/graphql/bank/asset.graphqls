@@ -1,0 +1,6 @@
+# Client type
+type Asset {
+    id: ID!
+    name: String!
+    description: String
+}

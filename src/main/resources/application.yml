@@ -12,7 +12,7 @@ server:
 graphql:
   servlet:
     maxQueryDepth: 90
-    exception-handlers-enabled: true
+    exception-handlers-enabled: false
   voyager:
     enable: true #change to false in a production environment
   playground:

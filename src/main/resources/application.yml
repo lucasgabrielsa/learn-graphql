@@ -1,8 +1,11 @@
 spring:
     application:
       name: learn-graphql-java
+    profiles:
+      active: ${SPRING_BOOT_ACTIVE_PROFILE:local}
 
 server:
+  port: ${SPRING_BOOT_DEFAULT_PORT:8080}
   http2:
     enabled: true
 

@@ -39,6 +39,4 @@ public class LearnGraphqlApplication {
 		return String.format("https://aplication-name.%s.lucasgabriel.dev", env.getActiveProfiles()[0]);
 	}
 
-
-
 }

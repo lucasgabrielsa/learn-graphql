@@ -2,6 +2,7 @@ package com.lucasgabriel.learngraphql.resolver.bank;
 
 import com.lucasgabriel.learngraphql.domain.bank.BankAccount;
 import com.lucasgabriel.learngraphql.domain.bank.Client;
+import graphql.GraphQLException;
 import graphql.kickstart.tools.GraphQLResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -15,13 +16,17 @@ public class ClientResolver implements GraphQLResolver<BankAccount> {
 
     public Client client(BankAccount bankAccount) {
         log.info("Requesting Client data for bank account id {}", bankAccount.getId());
-        return Client
-                .builder()
-                .id(UUID.randomUUID())
-                .firstName("Lucas")
-                .middleNames(Arrays.asList("Gabriel","Simão"))
-                .lastName("Alves1")
-                .build();
+
+//        throw new GraphQLException("Client Unavailable");
+        throw new RuntimeException("Client Unavailable");
+
+//        return Client
+//                .builder()
+//                .id(UUID.randomUUID())
+//                .firstName("Lucas")
+//                .middleNames(Arrays.asList("Gabriel","Simão"))
+//                .lastName("Alves1")
+//                .build();
     }
 
 }

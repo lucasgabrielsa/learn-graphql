@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Component
@@ -17,7 +18,9 @@ public class BankAccountResolver implements GraphQLQueryResolver {
     public BankAccount bankAccount(UUID id, DataFetchingEnvironment e) {
       log.info("Retrieving bank account id {}", id);
 
-      e.getSelectionSet().getFields().stream().map(SelectedField::getName).forEach(System.out::println);
+      var fieldsRequested = e.getSelectionSet().getFields().stream().map(SelectedField::getName).collect(Collectors.toSet());
+
+      fieldsRequested.forEach(System.out::println);
 
       return BankAccount.builder().id(id).currency(Currency.USD)
               .build();

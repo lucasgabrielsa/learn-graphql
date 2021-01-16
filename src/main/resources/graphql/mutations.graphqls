@@ -1,4 +1,7 @@
 # All availables mutations on this graphql server
 type Mutation {
     createBankAccount(input: CreateBankAccountInput!): BankAccount!
+
+    # Upload a file
+    uploadFile: ID!
 }

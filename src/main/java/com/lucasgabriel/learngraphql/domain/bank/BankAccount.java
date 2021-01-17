@@ -3,6 +3,8 @@ package com.lucasgabriel.learngraphql.domain.bank;
 import lombok.Builder;
 import lombok.Value;
 
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,4 +15,6 @@ public class BankAccount {
   Client client;
   Currency currency;
   List<Asset> assets;
+  ZonedDateTime createdAt;
+  LocalDate createdOn;
 }

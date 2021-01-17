@@ -1,0 +1,42 @@
+# GET Example Bank Account
+query GET_BANK_ACCOUNT($id: ID) {
+bankAccount(id: $id) {
+client {
+id
+firstName
+middleNames
+lastName
+}
+}
+}
+
+
+query GET_BANK_ACCOUNTS {
+bankAccounts(first: 1) {
+edges {
+cursor
+node {
+id
+createdAt
+currency
+}
+}
+pageInfo {
+hasPreviousPage
+hasNextPage
+startCursor
+endCursor
+}
+}
+}
+
+mutation CREATE_BANK_ACCOUNT {
+createBankAccount(input: {
+firstName: ""
+age: 35
+}) {
+id
+createdOn
+createdAt
+}
+}

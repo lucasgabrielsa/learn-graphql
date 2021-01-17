@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class BankAccountResolver implements GraphQLQueryResolver {
+public class BankAccountQueryResolver implements GraphQLQueryResolver {
 
   private final BankAccountRepository bankAccountRepository;
   private final CursorUtil cursorUtil;
@@ -37,7 +37,7 @@ public class BankAccountResolver implements GraphQLQueryResolver {
             .map(SelectedField::getName)
             .collect(Collectors.toSet());
 
-    log.info("Fields Requested {}", fieldsRequested);
+     log.info("Fields Requested {}", fieldsRequested);
 
     return BankAccount.builder().id(id).currency(Currency.USD).build();
   }

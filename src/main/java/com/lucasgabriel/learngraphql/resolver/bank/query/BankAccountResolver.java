@@ -1,6 +1,7 @@
 package com.lucasgabriel.learngraphql.resolver.bank.query;
 
 import com.lucasgabriel.learngraphql.connection.CursorUtil;
+import com.lucasgabriel.learngraphql.context.CustomGraphQLContext;
 import com.lucasgabriel.learngraphql.domain.bank.BankAccount;
 import com.lucasgabriel.learngraphql.domain.bank.Currency;
 import com.lucasgabriel.learngraphql.repository.BankAccountRepository;
@@ -27,6 +28,9 @@ public class BankAccountResolver implements GraphQLQueryResolver {
 
   public BankAccount bankAccount(UUID id, DataFetchingEnvironment e) {
     log.info("Retrieving bank account id {}", id);
+
+    CustomGraphQLContext context = e.getContext();
+    log.info("User Id: {}", context.getUserId());
 
     var fieldsRequested =
         e.getSelectionSet().getFields().stream()

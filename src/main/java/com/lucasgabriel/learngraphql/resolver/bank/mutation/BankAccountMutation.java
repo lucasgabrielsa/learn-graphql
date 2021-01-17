@@ -13,8 +13,8 @@ import java.util.UUID;
 @Slf4j
 public class BankAccountMutation implements GraphQLMutationResolver {
 
-    public BankAccount createBankAccount(CreateBankAccountInput createBankAccountInput) {
-            log.info("Creating a bank account for {}", createBankAccountInput);
-            return BankAccount.builder().id(UUID.randomUUID()).currency(Currency.USD).build();
-    }
+  public BankAccount createBankAccount(CreateBankAccountInput createBankAccountInput) {
+    log.info("Creating a bank account for {}", createBankAccountInput);
+    return BankAccount.builder().id(UUID.randomUUID()).currency(Currency.USD).build();
+  }
 }

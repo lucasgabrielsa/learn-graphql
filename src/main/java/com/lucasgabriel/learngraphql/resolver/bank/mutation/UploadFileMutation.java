@@ -14,15 +14,16 @@ import java.util.UUID;
 @Slf4j
 public class UploadFileMutation implements GraphQLMutationResolver {
 
-    // DataFetchingEnvironment must be the last parameter
-    public UUID uploadFile(DataFetchingEnvironment environment) {
-      log.info("Uploading File");
+  // DataFetchingEnvironment must be the last parameter
+  public UUID uploadFile(DataFetchingEnvironment environment) {
+    log.info("Uploading File");
 
-      DefaultGraphQLServletContext context = environment.getContext();
+    DefaultGraphQLServletContext context = environment.getContext();
 
-        List<Part> fileParts = context.getFileParts();
-        fileParts.forEach(part -> log.info("Uploading: {} , size: {}", part.getSubmittedFileName(), part.getSize()));
+    List<Part> fileParts = context.getFileParts();
+    fileParts.forEach(
+        part -> log.info("Uploading: {} , size: {}", part.getSubmittedFileName(), part.getSize()));
 
-        return UUID.randomUUID();
-    }
+    return UUID.randomUUID();
+  }
 }

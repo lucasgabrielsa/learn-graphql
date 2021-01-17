@@ -9,8 +9,8 @@ import java.util.UUID;
 @Builder
 @Value
 public class BankAccount {
-    UUID id;
-    Client client;
-    Currency currency;
-    List<Asset> assets;
+  UUID id;
+  Client client;
+  Currency currency;
+  List<Asset> assets;
 }

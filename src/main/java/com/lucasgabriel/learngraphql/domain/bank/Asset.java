@@ -8,7 +8,7 @@ import java.util.UUID;
 @Builder
 @Setter
 public class Asset {
-    UUID id;
-    String name;
-    String description;
+  UUID id;
+  String name;
+  String description;
 }

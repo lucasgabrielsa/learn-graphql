@@ -17,20 +17,20 @@ import java.util.concurrent.Executors;
 @Component
 public class AssetResolver implements GraphQLResolver<BankAccount> {
 
-    private final ExecutorService executorService = Executors.newFixedThreadPool(
-            Runtime.getRuntime().availableProcessors()
-    );
+  private final ExecutorService executorService =
+      Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
-    public CompletableFuture<List<Asset>> assets(BankAccount bankAccount) {
-            return CompletableFuture.supplyAsync(
-                () -> {
-                    log.info("Requesting Asset data for bank account id {}", bankAccount.getId());
-                    return Collections.singletonList(
-                            Asset.builder()
-                                .id(UUID.randomUUID())
-                                .name("Asset Default")
-                                .description("Default Asset description")
-                                .build());
-            }, executorService);
-    }
+  public CompletableFuture<List<Asset>> assets(BankAccount bankAccount) {
+    return CompletableFuture.supplyAsync(
+        () -> {
+          log.info("Requesting Asset data for bank account id {}", bankAccount.getId());
+          return Collections.singletonList(
+              Asset.builder()
+                  .id(UUID.randomUUID())
+                  .name("Asset Default")
+                  .description("Default Asset description")
+                  .build());
+        },
+        executorService);
+  }
 }

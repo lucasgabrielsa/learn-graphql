@@ -20,35 +20,35 @@ import java.util.concurrent.Executors;
 @Component
 public class ClientResolver implements GraphQLResolver<BankAccount> {
 
-//    public DataFetcherResult<Client> client(BankAccount bankAccount) {
-//        log.info("Requesting Client data for bank account id {}", bankAccount.getId());
-//
-////        throw new GraphQLException("Client Unavailable");
-////        throw new RuntimeException("Client Unavailable");
-//
-//        return DataFetcherResult.<Client>newResult()
-//                .data(Client.builder()
-//                .id(UUID.randomUUID())
-//                .firstName("Lucas")
-//                .middleNames(Arrays.asList("Gabriel","Simão"))
-//                .lastName("Alves1").build())
-//                .error(new GenericGraphQLError("could not get subclient id")).build();
-//    }
+  //    public DataFetcherResult<Client> client(BankAccount bankAccount) {
+  //        log.info("Requesting Client data for bank account id {}", bankAccount.getId());
+  //
+  ////        throw new GraphQLException("Client Unavailable");
+  ////        throw new RuntimeException("Client Unavailable");
+  //
+  //        return DataFetcherResult.<Client>newResult()
+  //                .data(Client.builder()
+  //                .id(UUID.randomUUID())
+  //                .firstName("Lucas")
+  //                .middleNames(Arrays.asList("Gabriel","Simão"))
+  //                .lastName("Alves1").build())
+  //                .error(new GenericGraphQLError("could not get subclient id")).build();
+  //    }
 
-    private final ExecutorService executorService = Executors.newFixedThreadPool(
-            Runtime.getRuntime().availableProcessors()
-    );
+  private final ExecutorService executorService =
+      Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
-    public CompletableFuture<Client> client(BankAccount bankAccount) {
-        return CompletableFuture.supplyAsync(
-                () -> {
-                    log.info("Requesting Client data for bank account id {}", bankAccount.getId());
-                    return Client.builder()
-                            .id(UUID.randomUUID())
-                            .firstName("Lucas")
-                            .middleNames(Arrays.asList("Gabriel", "Simão"))
-                            .lastName("Alves1").build();
-                }, executorService);
-    }
-
+  public CompletableFuture<Client> client(BankAccount bankAccount) {
+    return CompletableFuture.supplyAsync(
+        () -> {
+          log.info("Requesting Client data for bank account id {}", bankAccount.getId());
+          return Client.builder()
+              .id(UUID.randomUUID())
+              .firstName("Lucas")
+              .middleNames(Arrays.asList("Gabriel", "Simão"))
+              .lastName("Alves1")
+              .build();
+        },
+        executorService);
+  }
 }

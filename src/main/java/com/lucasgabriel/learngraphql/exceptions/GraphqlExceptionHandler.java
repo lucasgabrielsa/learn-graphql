@@ -8,14 +8,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @Component
 public class GraphqlExceptionHandler {
 
-    @ExceptionHandler(GraphQLException.class)
-    public ThrowableGraphQLError handle(GraphQLException e) {
-        return new ThrowableGraphQLError(e);
-    }
+  @ExceptionHandler(GraphQLException.class)
+  public ThrowableGraphQLError handle(GraphQLException e) {
+    return new ThrowableGraphQLError(e);
+  }
 
-    @ExceptionHandler(RuntimeException.class)
-    public ThrowableGraphQLError handle(RuntimeException e) {
-        return new ThrowableGraphQLError(e, "Internal server error");
-    }
-
+  @ExceptionHandler(RuntimeException.class)
+  public ThrowableGraphQLError handle(RuntimeException e) {
+    return new ThrowableGraphQLError(e, "Internal server error");
+  }
 }

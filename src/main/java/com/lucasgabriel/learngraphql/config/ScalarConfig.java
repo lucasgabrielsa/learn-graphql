@@ -8,9 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ScalarConfig {
 
-    @Bean
-    public GraphQLScalarType nonNegativeInt() {
-        return ExtendedScalars.NonNegativeInt;
-    }
-
+  @Bean
+  public GraphQLScalarType nonNegativeInt() {
+    return ExtendedScalars.NonNegativeInt;
+  }
 }

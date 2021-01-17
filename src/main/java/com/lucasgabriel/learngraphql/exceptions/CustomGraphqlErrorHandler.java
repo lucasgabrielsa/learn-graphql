@@ -9,12 +9,9 @@ import java.util.List;
 @Component
 public class CustomGraphqlErrorHandler implements GraphQLErrorHandler {
 
-    @Override
-    public List<GraphQLError> processErrors(List<GraphQLError> errors) {
+  @Override
+  public List<GraphQLError> processErrors(List<GraphQLError> errors) {
 
-
-
-        return errors;
-    }
-
+    return errors;
+  }
 }

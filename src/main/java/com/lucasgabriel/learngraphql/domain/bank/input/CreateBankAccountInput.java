@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class CreateBankAccountInput {
-    String firstName;
-    int age;
+  String firstName;
+  int age;
 }

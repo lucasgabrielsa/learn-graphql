@@ -15,15 +15,16 @@ import java.util.stream.Collectors;
 @Component
 public class BankAccountResolver implements GraphQLQueryResolver {
 
-    public BankAccount bankAccount(UUID id, DataFetchingEnvironment e) {
-      log.info("Retrieving bank account id {}", id);
+  public BankAccount bankAccount(UUID id, DataFetchingEnvironment e) {
+    log.info("Retrieving bank account id {}", id);
 
-      var fieldsRequested = e.getSelectionSet().getFields().stream().map(SelectedField::getName).collect(Collectors.toSet());
+    var fieldsRequested =
+        e.getSelectionSet().getFields().stream()
+            .map(SelectedField::getName)
+            .collect(Collectors.toSet());
 
-      fieldsRequested.forEach(System.out::println);
+    fieldsRequested.forEach(System.out::println);
 
-      return BankAccount.builder().id(id).currency(Currency.USD)
-              .build();
-    }
-
+    return BankAccount.builder().id(id).currency(Currency.USD).build();
+  }
 }

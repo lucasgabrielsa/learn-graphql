@@ -9,8 +9,8 @@ import java.util.UUID;
 @Setter
 @Builder
 public class Client {
-    UUID id;
-    String firstName;
-    List<String> middleNames;
-    String lastName;
+  UUID id;
+  String firstName;
+  List<String> middleNames;
+  String lastName;
 }

@@ -26,6 +26,7 @@ public class CustomGraphQLContextBuilder implements GraphQLServletContextBuilder
 
         var userId = httpServletRequest.getHeader("user_id");
 
+        //criando um customContext o dataloader fica por requisiciao, toda requisicao ele sera criado
         var context = DefaultGraphQLServletContext.createServletContext()
                 .with(httpServletRequest)
                 .with(httpServletResponse)

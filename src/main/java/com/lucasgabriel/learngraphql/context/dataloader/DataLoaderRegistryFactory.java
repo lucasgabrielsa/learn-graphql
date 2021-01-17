@@ -1,11 +1,8 @@
 package com.lucasgabriel.learngraphql.context.dataloader;
 
-import com.lucasgabriel.learngraphql.domain.bank.BankAccount;
 import com.lucasgabriel.learngraphql.service.BalanceService;
 import lombok.RequiredArgsConstructor;
-import org.dataloader.BatchLoaderEnvironment;
 import org.dataloader.DataLoader;
-import org.dataloader.DataLoaderOptions;
 import org.dataloader.DataLoaderRegistry;
 import org.springframework.stereotype.Component;
 
